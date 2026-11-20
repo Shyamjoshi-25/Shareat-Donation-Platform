@@ -1493,3 +1493,82 @@ td small {
 .profile-form .show-password{display:flex}
 .profile-form .show-password input{margin-top:0}
 .profile-form .two-fields label{margin-bottom:0}
+
+/* Visible logout action for donor/user, NGO and admin accounts */
+.profile-mini .logout-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 11px;border:1px solid #ead4d1;border-radius:9px;background:#fff8f7;color:#a33d35;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s,color .2s}.profile-mini .logout-btn:hover{background:#fdecea;border-color:#e7b8b3;color:#8d2923}.profile-mini .logout-btn:focus-visible{outline:3px solid #e8aaa4;outline-offset:2px}.profile-mini .logout-btn svg{flex:0 0 auto}@media(max-width:520px){.profile-mini .logout-btn{padding:8px}.profile-mini .logout-btn span{display:inline}}
+
+
+/* FIX: Keep profile and Logout visible in sidebar */
+.sidebar {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar nav {
+  flex-shrink: 0;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.profile-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.profile-mini .profile-info {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.profile-mini .profile-info b,
+.profile-mini .profile-info small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-mini .logout-btn {
+  display: inline-flex !important;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 10px;
+  border: 1px solid #ead4d1;
+  border-radius: 9px;
+  background: #fff8f7;
+  color: #a33d35;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+@media (max-height: 650px) {
+  .sidebar {
+    overflow-y: auto;
+  }
+
+  .workspace-label {
+    margin-top: 20px;
+  }
+
+  .impact-card {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+}
+
