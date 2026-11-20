@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Bell, Heart, Leaf, HandHeart, LayoutDashboard, PlusCircle, Package, CalendarDays, LogOut, Menu, X, Search, ArrowUpRight, Clock3, CheckCircle2, Users, Building2, TrendingUp, MapPin, Shirt, Home, BookOpen, Boxes, ShieldCheck, ChevronRight, AlertCircle, Trash2, RefreshCw, UserCircle, MessageSquareWarning, BarChart3, Truck, Camera, Eye, EyeOff, UserSearch } from 'lucide-react';
 import './style.css';
-const API = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
+const API = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
 async function api(path, { method = 'GET', body, token } = {}) {
   let r;
   try {
