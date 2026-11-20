@@ -1,0 +1,3 @@
+import {encryptField,decryptField} from '../utils/fieldEncryption.js';
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({owner:{type:mongoose.Schema.Types.ObjectId,ref:'User',index:true},label:{type:String,required:true,maxlength:100},address:{type:String,required:true,maxlength:1000,set:encryptField,get:decryptField},city:{type:String,required:true,maxlength:100,index:true},state:{type:String,default:'',maxlength:100},postalCode:{type:String,default:'',maxlength:12},latitude:{type:Number,min:-90,max:90},longitude:{type:Number,min:-180,max:180}},{timestamps:true,toJSON:{getters:true},toObject:{getters:true}}); export default mongoose.model('Location',schema);

@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {encryptField,decryptField} from '../src/utils/fieldEncryption.js';
+test('AES-256-GCM field encryption round-trips and does not store plaintext',()=>{process.env.PII_ENCRYPTION_KEY='0123456789abcdef'.repeat(4);const value='9876543210';const encrypted=encryptField(value);assert.notEqual(encrypted,value);assert.match(encrypted,/^enc:v1:/);assert.equal(decryptField(encrypted),value);assert.equal(decryptField('legacy-plaintext'), 'legacy-plaintext');});

@@ -1,0 +1,3 @@
+import safeRouter from '../utils/safeRouter.js';
+import {Router} from 'express'; import User from '../models/User.js'; import {protect,allow} from '../middleware/auth.js';
+const r=safeRouter(Router());r.use(protect,allow('donor'));r.get('/',async(req,res)=>{const filter={role:'ngo',verified:true};const city=String(req.query.city||'').trim().slice(0,100);if(city)filter.city=new RegExp('^'+city.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'$','i');const ngos=await User.find(filter).select('name organization city address profileImage verified').sort({organization:1}).limit(200);res.json({ngos});});export default r;
